@@ -1,30 +1,7 @@
 import LayoutProvider from '../../components/LayoutProvider'
-import { teamsMock, ITeams, ITeam } from '../../mocks/teams';
-
-type TeamRowProps = {
-  name: string;
-  memberCount: number;
-}
-
-function TeamRow(props: TeamRowProps) {
-  return (
-    <tr>
-      <td>
-        {props.name}
-      </td>
-      <td>
-        {props.memberCount}
-      </td>
-    </tr>
-  )
-}
-
-function toTeam(teamMock: ITeam) {
-  return {
-    name: teamMock.name,
-    memberCount: teamMock.member_count,
-  }
-}
+import Table from '../../components/Table'
+import { teamsMock, ITeams } from '../../mocks/teams'
+import { toTeamRowData } from './utils/toTeamRowData'
 
 type useTeamsProps = {
   teamsMock: ITeams;
@@ -32,7 +9,8 @@ type useTeamsProps = {
 
 function useTeams(props: useTeamsProps) {
   return {
-    teams: props.teamsMock.teams.map(toTeam),
+    header: ['Name', 'Members'],
+    teams: props.teamsMock.teams.map(toTeamRowData),
   }
 }
 
@@ -44,19 +22,10 @@ function Teams() {
   return (
     <LayoutProvider>
       <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Members</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              teamsController.teams.map(TeamRow)
-            }
-          </tbody>
-        </table>
+        <Table 
+          headerData={teamsController.header}
+          rowDataList={teamsController.teams}
+        />
       </div>
     </LayoutProvider>
   )

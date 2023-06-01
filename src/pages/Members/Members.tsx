@@ -1,30 +1,7 @@
 import LayoutProvider from '../../components/LayoutProvider'
-import { membersMock, IMembers, IMember } from '../../mocks/members';
-
-type MemberRowProps = {
-  name: string;
-  teamName: string;
-}
-
-function MemberRow(props: MemberRowProps) {
-  return (
-    <tr>
-      <td>
-        {props.name}
-      </td>
-      <td>
-        {props.teamName}
-      </td>
-    </tr>
-  )
-}
-
-function toMember(memberMock: IMember) {
-  return {
-    name: `${memberMock.first_name} ${memberMock.last_name}`,
-    teamName: memberMock.team.name,
-  }
-}
+import Table from '../../components/Table'
+import { membersMock, IMembers } from '../../mocks/members';
+import { toMemberRowData } from './utils/toMemberRowData'
 
 type useMembersProps = {
   membersMock: IMembers;
@@ -32,7 +9,8 @@ type useMembersProps = {
 
 function useMembers(props: useMembersProps) {
   return {
-    members: props.membersMock.members.map(toMember),
+    header: ['Name', 'Team'],
+    members: props.membersMock.members.map(toMemberRowData),
   }
 }
 
@@ -44,19 +22,10 @@ function Members() {
   return (
     <LayoutProvider>
       <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Team</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              membersController.members.map(MemberRow)
-            }
-          </tbody>
-        </table>
+        <Table 
+          headerData={membersController.header}
+          rowDataList={membersController.members}
+        />
       </div>
     </LayoutProvider>
   )
