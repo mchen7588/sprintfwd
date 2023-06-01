@@ -1,8 +1,8 @@
-interface IMembers {
+export interface IMembers {
   members: IMember[];
 }
 
-interface IMember {
+export interface IMember {
   id: number;
   first_name: string;
   last_name: string;
