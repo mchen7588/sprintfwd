@@ -1,0 +1,15 @@
+.app-container {
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  gap: 3rem;
+  padding: 2rem 3rem;
+}
+
+.app-content {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
