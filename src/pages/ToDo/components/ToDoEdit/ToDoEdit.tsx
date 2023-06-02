@@ -19,7 +19,7 @@ function useToDoEdit(props: ToDoEditProps) {
 
   function handleToDoEditSubmit(event: React.FormEvent) {
     event.preventDefault()
-    toDoContext.setToDoList([...toDoContext.toDoList.slice(0, props.index), toDoEdit, ...toDoContext.toDoList.slice(props.index + 1)])
+    toDoContext.setToDoList([...toDoContext.toDoList.slice(0, props.index), {...toDoContext[props.index], title: toDoEdit}, ...toDoContext.toDoList.slice(props.index + 1)])
     props.handleEditToggle()
   }
 

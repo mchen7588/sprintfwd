@@ -1,7 +1,8 @@
 import React from 'react'
+import { v4 as uuidv4 } from "uuid"
 import LayoutProvider from '../../components/LayoutProvider'
 import ToDoRow from './components/ToDoRow'
-import { useToDoContext } from '../../components/ToDoContextProvider/ToDoContextProvider'
+import { useToDoContext, toDoListItem } from '../../components/ToDoContextProvider/ToDoContextProvider'
 
 import './ToDo.css'
 
@@ -16,7 +17,7 @@ function useToDo() {
   function handleNewToDoSubmit(event: React.FormEvent) {
     event.preventDefault()
     setNewToDo('')
-    toDoContext.setToDoList([...toDoContext.toDoList, newToDo])
+    toDoContext.setToDoList([...toDoContext.toDoList, {title: newToDo, id: uuidv4()}])
   }
 
   return {
@@ -51,7 +52,7 @@ function ToDo() {
         </form>
         <div className="to-do-list-container">
           {
-            toDoController.toDoList.map((toDoItem: string, index: number) => <ToDoRow key={index} toDoItem={toDoItem} index={index} />)
+            toDoController.toDoList.map((toDoItem: toDoListItem, index: number) => <ToDoRow key={toDoItem.id} toDoItem={toDoItem} index={index} />)
           }
         </div>
       </div>
