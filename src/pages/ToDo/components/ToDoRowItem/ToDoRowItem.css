@@ -1,0 +1,35 @@
+.todo-item {
+  display: flex;
+  align-items: center;
+}
+
+.todo-text {
+  flex-grow: 1;
+  font-size: 1.2rem;
+}
+
+.edit-button, .delete-button {
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button {
+  background-color: #17A2B8;
+}
+
+.delete-button {
+  background-color: #DC3545;
+}
+
+.delete-button:hover, .edit-button:hover {
+  background-color: #005CBF;
+}
+
+.todo-button-container {
+  display: flex;
+  gap: .5rem
+}

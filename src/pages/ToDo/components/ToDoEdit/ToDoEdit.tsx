@@ -1,6 +1,8 @@
 import React from 'react'
 import { useToDoContext } from '../../../../components/ToDoContextProvider/ToDoContextProvider'
 
+import './ToDoEdit.css'
+
 type ToDoEditProps = {
   toDoItem: string;
   index: number;
@@ -37,18 +39,28 @@ function ToDoEdit(props: ToDoEditProps) {
   const toDoEditController = useToDoEdit(props)
 
   return (
-    <form onSubmit={toDoEditController.handleToDoEditSubmit}>
+    <form className="todo-edit-view" onSubmit={toDoEditController.handleToDoEditSubmit}>
       <input
+        className="todo-edit-input"
         type="text"
         value={toDoEditController.toDoEdit}
         onChange={toDoEditController.handleToDoEditChange}
       />
-      <button disabled={!toDoEditController.toDoEdit} type="submit">
-        save
-      </button>
-      <button onClick={toDoEditController.handleToDoEditCancel}>
-        cancel
-      </button>
+      <div className="todo-edit-button-container">
+        <button
+          className="save-button"
+          disabled={!toDoEditController.toDoEdit}
+          type="submit"
+        >
+          Save
+        </button>
+        <button
+          className="cancel-button"
+          onClick={toDoEditController.handleToDoEditCancel}
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   )
 }

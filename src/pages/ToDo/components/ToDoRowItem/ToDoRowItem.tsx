@@ -1,5 +1,7 @@
 import { useToDoContext } from '../../../../components/ToDoContextProvider/ToDoContextProvider'
 
+import './ToDoRowItem.css'
+
 function ToDoRowItem(props: {toDoItem: string, index: number, handleEditToggle: () => void}) {
   const toDoContext = useToDoContext()
 
@@ -8,15 +10,17 @@ function ToDoRowItem(props: {toDoItem: string, index: number, handleEditToggle: 
   }
   
   return (
-    <>
-      <span>{props.toDoItem}</span>
-      <button onClick={props.handleEditToggle}>
-        edit
-      </button>
-      <button onClick={handleDeleteClick}>
-        delete
-      </button>
-    </>
+    <div className="todo-item">
+      <span className="todo-text">{props.toDoItem}</span>
+      <div className="todo-button-container">
+        <button className="edit-button" onClick={props.handleEditToggle}>
+          Edit
+        </button>
+        <button className="delete-button" onClick={handleDeleteClick}>
+          Delete
+        </button>
+      </div>
+    </div>
   )
 }
 

@@ -1,0 +1,40 @@
+.todo-edit-view {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.todo-edit-input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1.2rem;
+}
+
+.save-button, .cancel-button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button {
+  background-color: #28A745;
+}
+
+.cancel-button {
+  background-color: #DC3545;
+}
+
+.save-button:hover, .cancel-button:hover {
+  background-color: #005CBF;
+}
+
+.todo-edit-button-container {
+  display: flex;
+  gap: .5rem
+}

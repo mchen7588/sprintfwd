@@ -3,6 +3,8 @@ import LayoutProvider from '../../components/LayoutProvider'
 import ToDoRow from './components/ToDoRow'
 import { useToDoContext } from '../../components/ToDoContextProvider/ToDoContextProvider'
 
+import './ToDo.css'
+
 function useToDo() {
   const [newToDo, setNewToDo] = React.useState('')
   const toDoContext = useToDoContext()
@@ -30,18 +32,24 @@ function ToDo() {
 
   return (
     <LayoutProvider>
-      <div>
-        <form onSubmit={toDoController.handleNewToDoSubmit}>
+      <div className="to-do-page-container">
+        <form className="todo-form" onSubmit={toDoController.handleNewToDoSubmit}>
           <input
+            className="todo-input"
             type="text"
             value={toDoController.newToDo}
             onChange={toDoController.handleNewToDoChange}
+            placeholder="Enter a new todo..."
           />
-          <button disabled={!toDoController.newToDo} type="submit">
-            add
+          <button
+            className="todo-submit-button"
+            disabled={!toDoController.newToDo}
+            type="submit"
+          >
+            Add
           </button>
         </form>
-        <div>
+        <div className="to-do-list-container">
           {
             toDoController.toDoList.map((toDoItem: string, index: number) => <ToDoRow key={index} toDoItem={toDoItem} index={index} />)
           }
