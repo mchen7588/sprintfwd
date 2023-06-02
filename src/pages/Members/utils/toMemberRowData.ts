@@ -1,4 +1,4 @@
-import { IMember } from '../../../mocks/members';
+import { IMember } from '../../../mocks/members'
 
 export function toMemberRowData(memberMock: IMember) {
   return [

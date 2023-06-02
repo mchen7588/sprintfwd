@@ -26,11 +26,16 @@
   background-color: #28A745;
 }
 
+.save-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 .cancel-button {
   background-color: #DC3545;
 }
 
-.save-button:hover, .cancel-button:hover {
+.save-button:not(:disabled):hover, .cancel-button:hover {
   background-color: #005CBF;
 }
 

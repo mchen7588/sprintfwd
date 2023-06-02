@@ -22,6 +22,9 @@ function Teams() {
   return (
     <LayoutProvider>
       <div>
+        <h1>
+          Teams Table
+        </h1>
         <Table 
           headerData={teamsController.header}
           rowDataList={teamsController.teams}

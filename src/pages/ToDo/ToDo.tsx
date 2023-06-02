@@ -33,6 +33,9 @@ function ToDo() {
 
   return (
     <LayoutProvider>
+      <h1>
+        ToDo List
+      </h1>
       <div className="to-do-page-container">
         <form className="todo-form" onSubmit={toDoController.handleNewToDoSubmit}>
           <input

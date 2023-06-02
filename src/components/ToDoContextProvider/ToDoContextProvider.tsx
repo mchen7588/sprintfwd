@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-const ToDoContext = React.createContext<any | undefined>(undefined);
+const ToDoContext = React.createContext<any | undefined>(undefined)
 
 export type toDoListItem = {
   title: string;
@@ -8,7 +8,7 @@ export type toDoListItem = {
 } 
 
 export function useToDoContext() {
-  return React.useContext(ToDoContext);
+  return React.useContext(ToDoContext)
 }
 
 function useToDoContextProvider() {
@@ -21,9 +21,9 @@ function useToDoContextProvider() {
 }
 
 const ToDoContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const controller = useToDoContextProvider();
+  const controller = useToDoContextProvider()
 
-  return <ToDoContext.Provider value={controller}>{children}</ToDoContext.Provider>;
+  return <ToDoContext.Provider value={controller}>{children}</ToDoContext.Provider>
 };
 
 export default ToDoContextProvider

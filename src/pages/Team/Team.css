@@ -1,0 +1,9 @@
+.team-details-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-details-header-container a {
+  text-decoration: none;
+}

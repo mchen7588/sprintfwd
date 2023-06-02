@@ -1,6 +1,6 @@
 import LayoutProvider from '../../components/LayoutProvider'
 import Table from '../../components/Table'
-import { membersMock, IMembers } from '../../mocks/members';
+import { membersMock, IMembers } from '../../mocks/members'
 import { toMemberRowData } from './utils/toMemberRowData'
 
 type useMembersProps = {
@@ -22,6 +22,9 @@ function Members() {
   return (
     <LayoutProvider>
       <div>
+        <h1>
+          Members Table
+        </h1>
         <Table 
           headerData={membersController.header}
           rowDataList={membersController.members}

@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import * as React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
-import "./LayoutProvider.css";
+import "./LayoutProvider.css"
 
 function LayoutProvider(props: React.PropsWithChildren<{}>) {
-  const location = useLocation();
+  const location = useLocation()
 
   return (
     <div className="app-container">
