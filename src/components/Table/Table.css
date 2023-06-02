@@ -19,6 +19,10 @@
   padding: 10px 20px;
 }
 
+.table-row-item a {
+  text-decoration: none;
+}
+
 .table-header-item:last-child, .table-row-item:last-child {
   border-right: none;
 }

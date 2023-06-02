@@ -1,10 +1,23 @@
+import { Link } from 'react-router-dom';
+
 import "./Table.css";
 
-function TableRow(props: {rowData: string[]}) {
+type rowItem = {
+  text: string;
+  url?: string;
+}
+
+function TableRow(props: {rowData: rowItem[]}) {
   return (
     <tr className="table-row">
       {
-        props.rowData.map((rowItemData: string, index: number) => <td key={index} className="table-row-item">{rowItemData}</td>)
+        props.rowData.map((rowItemData: rowItem, index: number) => (
+          <td key={index} className="table-row-item">
+            {
+              rowItemData.url ? <Link key={index} to={rowItemData.url}>{rowItemData.text}</Link> : <>{rowItemData.text}</>
+            }
+          </td>
+        ))
       }
     </tr>
   )
@@ -12,7 +25,7 @@ function TableRow(props: {rowData: string[]}) {
 
 type TableProps = {
   headerData: string[],
-  rowDataList: string[][],
+  rowDataList: rowItem[][],
 }
 
 function Table(props: TableProps) {
@@ -27,7 +40,7 @@ function Table(props: TableProps) {
       </thead>
       <tbody>
         {
-          props.rowDataList.map((rowData: string[], index: number) => <TableRow key={index} rowData={rowData} />)
+          props.rowDataList.map((rowData: rowItem[], index: number) => <TableRow key={index} rowData={rowData} />)
         }
       </tbody>
     </table>
